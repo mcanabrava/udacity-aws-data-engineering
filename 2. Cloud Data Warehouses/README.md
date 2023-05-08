@@ -33,7 +33,7 @@ The schema was built into a star schema architecture aiming to improve query per
 
 ##### Instructions
 
-![alt text](./images/architecture.png "Architecture")
+![alt text](./images/architecture-2.png "Architecture")
 
 1. Fill your AWS credentials and review overall cluster and region configuration inside the dwh.cfg file
 2. Open the jupyter notebook setup.ipynb to create the IAM role and Cluster. Make sure the cluster is already available before checking the connection and do not forget to update the dwh.cfg file with the cluster's endpoint
