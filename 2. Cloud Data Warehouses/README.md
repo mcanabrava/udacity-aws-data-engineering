@@ -8,7 +8,7 @@ Their data resides in S3, in a directory of JSON logs on user activity on the ap
 
 Therefore, the purpose of this database is to enable Sparkify teams to answer business questions about its users such as most played artists, songs and etc. 
 
-![alt text](./image/sparkify-s3-to-redshift-etl.png "Sparkify S3 to Redshift ETL")
+![alt text](./images/sparkify-s3-to-redshift-etl.png "Sparkify S3 to Redshift ETL")
 
 ##### Datasets
 
@@ -27,13 +27,13 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 
 We will use the files above to create and populate the following tables:
 
-![alt text](./image/schema.png "Table schema")
+![alt text](./images/schema.png "Table schema")
 
 The schema was built into a star schema architecture aiming to improve query performance. Some tables were given distkeys such as distyle all (so the small tables can be copied across different nodes) combined with sortkeys to further speed up performance.
 
 ##### Instructions
 
-![alt text](./image/architecture.png "Architecture")
+![alt text](./images/architecture.png "Architecture")
 
 1. Fill your AWS credentials and review overall cluster and region configuration inside the dwh.cfg file
 2. Open the jupyter notebook setup.ipynb to create the IAM role and Cluster. Make sure the cluster is already available before checking the connection and do not forget to update the dwh.cfg file with the cluster's endpoint
