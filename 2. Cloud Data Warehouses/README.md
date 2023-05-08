@@ -1,4 +1,4 @@
-#### Challenge
+### Challenge
 
 In this project, you'll act as a data engineer for a music streaming startup called Sparkify.
 
@@ -10,7 +10,7 @@ Therefore, the purpose of this database is to enable Sparkify teams to answer bu
 
 ![alt text](./images/sparkify-s3-to-redshift-etl.png "Sparkify S3 to Redshift ETL")
 
-##### Datasets
+#### Datasets
 
 1. Song data: s3://udacity-dend/song_data
 
@@ -23,7 +23,7 @@ song_data/A/A/B/TRAABJL12903CDCF1A.json
 
 3. This third file s3://udacity-dend/log_json_path.jsoncontains the meta information that is required by AWS to correctly load s3://udacity-dend/log_data
 
-##### Tables
+#### Tables
 
 We will use the files above to create and populate the following tables:
 
@@ -31,7 +31,7 @@ We will use the files above to create and populate the following tables:
 
 The schema was built into a star schema architecture aiming to improve query performance. Some tables were given distkeys such as distyle all (so the small tables can be copied across different nodes) combined with sortkeys to further speed up performance.
 
-##### Instructions
+#### Instructions
 
 ![alt text](./images/architecture-2.png "Architecture")
 
