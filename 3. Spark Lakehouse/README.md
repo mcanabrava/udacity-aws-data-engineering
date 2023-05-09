@@ -52,4 +52,4 @@ AWS S3 Bucket URI - s3://cd0030bucket/accelerometer/
 
 ### Instructions
 
-As most of this project was done using AWS CLI and console, screenshots will be provided in the Case Solution and Analysis file to highlight steps taken to achieve the desired result and complete the project.
+As most of this project was done using AWS CLI and console, screenshots will be provided in the [Case Solution and Analysis file](https://github.com/mcanabrava/udacity-aws-data-engineering-nanodegree/blob/main/3.%20Spark%20Lakehouse/Case%20Solution%20and%20Analysis) to highlight steps taken to achieve the desired result and complete the project.
