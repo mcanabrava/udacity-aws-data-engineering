@@ -11,20 +11,16 @@ The purpose of this file is to organize and demonstrate steps taken to create th
 
 - accelerometer_landing
 - customer_landing
-
 <br></br>
 (only customer records that agreed to share their data)
 - accelerometer_trusted
 - customer_trusted 
-
 <br></br>
 (only customer data that has accelerometer data)
 - customers_curated
-
 <br></br>
 (step trainer records data for curated customers)
 - step_trainer_trusted
-
 <br></br>
 (aggregated table with data for each step trainer reading and associated accelerometer data for the same timestamp)
 - machine_learning_curated
@@ -41,7 +37,7 @@ You will need to create an Athena DB to query the tables and their results shoud
 
 customer_landing
 
-![customer_landing](/images/customer_landing.png)
+![customer_landing](./images/customer_landing.png)
 
 accelerometer_landing
 
