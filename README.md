@@ -6,7 +6,7 @@ The purpose of this repository is to store the code and deliverables necessary t
 
 #### [2. Cloud Data Warehouse for ETL vs. ELT using AWS IAM, S3, VPC, EC2, RDS and Redshift](https://github.com/mcanabrava/udacity-aws-data-engineering-nanodegree/tree/main/2.%20Cloud%20Data%20Warehouses)
 
-#### 3. Spark and Data Lakes using PySpark, SparkSQL, S3, Glue and Glue Studio
+#### [3. Spark and Data Lakes using PySpark, SparkSQL, S3, Glue and Glue Studio](https://github.com/mcanabrava/udacity-aws-data-engineering-nanodegree/tree/main/3.%20Spark%20Lakehouse)
 
 #### 4. Automating Data Pipelines with Airflow, S3 and Redshift
 
