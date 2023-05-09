@@ -17,13 +17,13 @@ The purpose of this file is to organize and demonstrate steps taken to create th
 - customer_trusted 
 
 (only customer data that has accelerometer data)
--customers_curated
+- customers_curated
 
 (step trainer records data for curated customers)
-step_trainer_trusted
+- step_trainer_trusted
 
 (aggregated table with data for each step trainer reading and associated accelerometer data for the same timestamp)
-machine_learning_curated
+- machine_learning_curated
 
 ### Glue Scripts
 
