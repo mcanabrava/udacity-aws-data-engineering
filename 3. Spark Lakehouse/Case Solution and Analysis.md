@@ -41,28 +41,28 @@ You will need to create an Athena DB to query the tables and their results shoud
 
 customer_landing
 
-![customer_landing](/images/customer_landing.jpg)
+![customer_landing](/images/customer_landing.png)
 
 accelerometer_landing
 
-![accelerometer_landing](/images/accelerometer_landing.jpg)
+![accelerometer_landing](/images/accelerometer_landing.png)
 
 2. To filter customer records that agreed to share their data, let's now create two Glue Jobs in the console and generate the trusted tables for the landing ones we already have.
 
 The end results should look as follows:
 
-![customer_trusted](/images/customer_trusted.jpg)
+![customer_trusted](/images/customer_trusted.png)
 
 An additional check can be performed to ensure only appropriate data is being used using the query below:
 
-![verifying_nulls_customer_trusted](/images/verifying_nulls_customer_trusted.jpg)
+![verifying_nulls_customer_trusted](/images/verifying_nulls_customer_trusted.png)
 
 
 The scripts for the Glue Jobs can be found in the Glue Scripts folder.
 
 3. Now, we should create a curated table for customers who also have accelerometer data using a Glue Job as we did before. The job should look as follows:
 
-![customer_curated_job](/images/customer_curated_job.jpg)
+![customer_curated_job](/images/customer_curated_job.png)
 
 In this job, we are also eliminating duplicates based on the email column and filtering timestamp >= 'shareWithResearchAsOfDate' for each customer so we can filter out any readings that were prior to the research consent date. This will ensure consent was in place at the time that data was gathered. This helps in the case that in the future the customer revokes consent. We can be sure that the data we used for research was used when consent was in place for that particular data.
 
@@ -70,7 +70,7 @@ We can create the tables directly through Athena from S3 or using a Glue Crawler
 
 The original table without removing the duplicates would display > 600k records given the way the join was done, but filtering for distinct customers should give us way fewer records.
 
-![customers_curated_distinct](/images/customers_curated_distinct.jpg)
+![customers_curated_distinct](/images/customers_curated_distinct.png)
 
 4. To get the additional files provided, we should navigate to the directory they are located in AWS Cloushell and run the following command: 
 
@@ -82,11 +82,11 @@ This will automatically create a new bucket and copy all the files to this bucke
 
 Querying the distinct serial numbers of the new step_trainer_trusted table should give us around ~30k records.
 
-![step_trainer_trusted_distinct](/images/step_trainer_trusted_distinct.jpg)
+![step_trainer_trusted_distinct](/images/step_trainer_trusted_distinct.png)
 
 6. Finally, we should create an aggreagated table containing each of Step Trainer records and the associated accelerometer reading data for the same timestamp, but only for customers who have agreed to share their data. For this, we need to use the previously created table accelerometer_trusted together with the step_trainer_trusted joining them on the timestamp column.
 
 
-![final_job](/images/final_job.jpg)
+![final_job](/images/final_job.png)
 
-![final_results](/images/final_results.jpg)
+![final_results](/images/final_results.png)
