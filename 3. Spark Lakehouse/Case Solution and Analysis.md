@@ -20,15 +20,15 @@ The purpose of this file is to organize and demonstrate steps taken to create th
 <br>
 (only customer data that has accelerometer data)
 - customers_curated
-<br>
 
+<br>
 (step trainer records data for curated customers)
 - step_trainer_trusted
-<br>
 
+<br>
 (aggregated table with data for each step trainer reading and associated accelerometer data for the same timestamp)
 - machine_learning_curated
-<br>
+
 ### Glue Scripts
 
 The Glue Scripts folder contains PySpark scripts to perform the ETL jobs to move data across buckets, supporting the creation of the tables.
