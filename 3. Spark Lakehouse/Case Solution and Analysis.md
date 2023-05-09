@@ -37,7 +37,7 @@ You will need to create an Athena DB to query the tables and their results shoud
 
 customer_landing
 
-![customer_landing](/images/customer_landing.png)
+![customer_landing](images/customer_landing.png)
 
 accelerometer_landing
 
