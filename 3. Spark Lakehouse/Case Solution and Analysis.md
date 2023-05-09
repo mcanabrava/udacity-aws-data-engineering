@@ -1,13 +1,13 @@
-### Introduction
+## Introduction
 
 The purpose of this file is to organize and demonstrate steps taken to create the Spark Lakehouse for STEDI in AWS.
 
 ### Assets
-## Buckets
+#### Buckets
 
 - Data was copied from Udacity to udacity-spark-aws-test-bucket using AWS CLI. This bucket contains the subfolders accelerometer/, customer/, and step_trainer/ each with it's respective landing and trusted zones.
 
-## Glue Tables
+#### Glue Tables
 
 - accelerometer_landing
 - customer_landing
@@ -25,7 +25,7 @@ step_trainer_trusted
 (aggregated table with data for each step trainer reading and associated accelerometer data for the same timestamp)
 machine_learning_curated
 
-## Glue Scripts
+#### Glue Scripts
 
 The Glue Scripts folder contains PySpark scripts to perform the ETL jobs to move data across buckets, supporting the creation of the tables.
 
