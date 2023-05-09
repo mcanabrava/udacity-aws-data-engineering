@@ -12,15 +12,19 @@ The purpose of this file is to organize and demonstrate steps taken to create th
 - accelerometer_landing
 - customer_landing
 
+
 (only customer records that agreed to share their data)
 - accelerometer_trusted
 - customer_trusted 
 
+
 (only customer data that has accelerometer data)
 - customers_curated
 
+
 (step trainer records data for curated customers)
 - step_trainer_trusted
+
 
 (aggregated table with data for each step trainer reading and associated accelerometer data for the same timestamp)
 - machine_learning_curated
