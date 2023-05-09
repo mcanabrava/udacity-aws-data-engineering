@@ -47,6 +47,18 @@ Join_node2 = Join.apply(
     transformation_ctx="Join_node2",
 )
 
+# Script generated for node Filter By Consent Date
+SqlQuery0 = """
+select * from myDataSource
+where timestamp >= shareWithResearchAsOfDate
+"""
+FilterByConsentDate_node1660849230571 = sparkSqlQuery(
+    glueContext,
+    query=SqlQuery0,
+    mapping={"myDataSource": JoinCustomer_node2},
+    transformation_ctx="FilterByConsentDate_node1660849230571",
+)
+
 # Script generated for node Drop Columns
 DropColumns_node1683557442894 = DropFields.apply(
     frame=Join_node2,
