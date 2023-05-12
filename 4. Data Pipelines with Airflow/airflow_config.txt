@@ -1,1 +1,19 @@
+*CONNECTIONS* 
+
+AWS_KEY=AKIA2VWJIGBRGCORC4PU
+AWS_SECRET=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
+AIRFLOW_USER=airflow
+AIRFLOW_PWD=airflow123X
+
+REDSHIFT_HOST = default.733787730018.us-east-1.redshift-serverless.amazonaws.com
+REDSHIFT_DB = dev
+REDSHIFT_PORT = 5439
+
+*PARAMETERS*
+
+KEY = s3_bucket
+VALUE = udacity-dend-airflow-marcelo
+
+KEY = s3_prefix
+VALUE = data-pipelines
 
