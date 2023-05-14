@@ -7,7 +7,8 @@ from final_project_operators.stage_redshift import StageToRedshiftOperator
 from final_project_operators.load_fact import LoadFactOperator
 from final_project_operators.load_dimension import LoadDimensionOperator
 from final_project_operators.data_quality import DataQualityOperator
-from udacity.common import final_project_sql_statements
+from udacity.common.final_project_sql_statements import SqlQueries
+
 
 
 default_args = {
@@ -37,7 +38,6 @@ def final_project():
         s3_key="log-data/2018/11/",
         jsonpath="log_json_path.json",
         table_name="public.staging_events",
-        ignore_headers=1
     )
 
     stage_songs_to_redshift = StageToRedshiftOperator(
@@ -46,59 +46,41 @@ def final_project():
         aws_credentials_id="aws_credentials",
         s3_bucket="udacity-airflow-project-marcelo",
         s3_key="song-data/A/A/A/",
-        table_name="public.staging_songs",
-        ignore_headers=1
+        table_name="public.staging_songs"
     )
-
-    """stage_events_to_redshift = StageToRedshiftOperator(
-        task_id="Stage_events",
-        aws_credentials_id="aws_credentials",
-        redshift_conn_id="redshift",
-        table="staging_events",
-        s3_path="s3://udacity-airflow-project-marcelo/log-data/2018/11/",
-        #log_json_file="s3://udacity-airflow-project-marcelo/log-json-path/log_json_path.json",
-    )
-
-    stage_songs_to_redshift = StageToRedshiftOperator(
-        task_id="Stage_songs",
-        aws_credentials_id="aws_credentials",
-        redshift_conn_id="redshift",
-        table="staging_songs",
-        s3_path="s3://udacity-airflow-project-marcelo/song-data/A/A/A/",
-    )"""
 
     load_songplays_table = LoadFactOperator(
         task_id="Load_songplays_fact_table",
         redshift_conn_id="redshift",
         table="songplays",
-        sql_query="final_project_sql_statements.songplay_table_insert",
+        sql_query=SqlQueries.songplay_table_insert
     )
 
     load_user_dimension_table = LoadDimensionOperator(
         task_id="Load_user_dim_table",
         redshift_conn_id="redshift",
-        sql_query="final_project_sql_statements.user_table_insert",
+        sql_query=SqlQueries.user_table_insert,
         table="users",
     )
 
     load_song_dimension_table = LoadDimensionOperator(
         task_id="Load_song_dim_table",
         redshift_conn_id="redshift",
-        sql_query="final_project_sql_statements.song_table_insert",
+        sql_query=SqlQueries.song_table_insert,
         table="songs",
     )
 
     load_artist_dimension_table = LoadDimensionOperator(
         task_id="Load_artist_dim_table",
         redshift_conn_id="redshift",
-        sql_query="final_project_sql_statements.artist_table_insert",
+        sql_query=SqlQueries.artist_table_insert,
         table="artists",
     )
 
     load_time_dimension_table = LoadDimensionOperator(
         task_id="Load_time_dim_table",
         redshift_conn_id="redshift",
-        sql_query="final_project_sql_statements.time_table_insert",
+        sql_query=SqlQueries.time_table_insert,
         table="time",
     )
 

@@ -1,5 +1,4 @@
 CREATE TABLE public.staging_events (
-stagingEventId INT PRIMARY KEY,
 artist VARCHAR(500),
 auth VARCHAR(20),
 firstName VARCHAR(500),
@@ -23,7 +22,6 @@ userId SMALLINT
 
 
 CREATE TABLE public.staging_songs (
-staging_song_id bigint PRIMARY KEY,
 num_songs INTEGER,
 artist_id VARCHAR(20),
 artist_latitude NUMERIC,
@@ -87,8 +85,8 @@ sortkey(year, month, day);
 
 
 CREATE TABLE public.songplays (
-songplay_id BIGINT PRIMARY KEY, 
-start_time BIGINT REFERENCES time(start_time) distkey, 
+songplay_id VARCHAR(500) PRIMARY KEY, 
+start_time timestamp REFERENCES time(start_time) distkey, 
 user_id SMALLINT REFERENCES users(user_id), 
 level VARCHAR(20), 
 song_id VARCHAR(20) REFERENCES songs(song_id), 
