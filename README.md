@@ -8,6 +8,6 @@ The purpose of this repository is to store the code and deliverables necessary t
 
 #### [3. Spark and Data Lakes using PySpark, SparkSQL, S3, Glue and Glue Studio and AWS CLI](https://github.com/mcanabrava/udacity-aws-data-engineering-nanodegree/tree/main/3.%20Spark%20Lakehouse)
 
-#### 4. Automating Data Pipelines with Airflow, S3 and Redshift
+#### [4. Automating Data Pipelines with Airflow, S3 and Redshift](https://github.com/mcanabrava/udacity-aws-data-engineering-nanodegree/tree/main/4.%20Data%20Pipelines%20with%20Airflow)
 
 Please refer to each folder for detailed information.
