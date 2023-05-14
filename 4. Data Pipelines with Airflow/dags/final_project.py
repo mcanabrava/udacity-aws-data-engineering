@@ -1,19 +1,21 @@
 from datetime import datetime, timedelta
+from airflow.plugins_manager import AirflowPlugin
+
 import pendulum
 import os
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
-from final_project_operators.stage_redshift import StageToRedshiftOperator
-from final_project_operators.load_fact import LoadFactOperator
-from final_project_operators.load_dimension import LoadDimensionOperator
-from final_project_operators.data_quality import DataQualityOperator
-from udacity.common.final_project_sql_statements import SqlQueries
 
-
+from airflow.operators import (
+    StageToRedshiftOperator,
+    LoadFactOperator,
+    LoadDimensionOperator,
+    DataQualityOperator,
+)
+from helpers import SqlQueries
 
 default_args = {
     "owner": "marcelo",
-    "start_date": pendulum.now(),
     "depends_on_past": False,
     "retries": 3,
     "retry_delay": timedelta(minutes=5),
@@ -23,8 +25,10 @@ default_args = {
 
 @dag(
     default_args=default_args,
+    start_date=pendulum.datetime(2018, 11, 1, 0, 0, 0, 0),
+    end_date=pendulum.datetime(2018, 11, 30, 0, 0, 0, 0),
     description="Load and transform data in Redshift with Airflow",
-    schedule_interval='0 * * * *'
+    schedule_interval='@hourly',
 )
 def final_project():
 
@@ -35,9 +39,9 @@ def final_project():
         redshift_conn_id="redshift",
         aws_credentials_id="aws_credentials",
         s3_bucket="udacity-airflow-project-marcelo",
-        s3_key="log-data/2018/11/",
+        s3_key="log-data/{{ execution_date.year }}/{{ execution_date.month }}/{{ ds }}-events.json",
         jsonpath="log_json_path.json",
-        table_name="public.staging_events",
+        table_name="public.staging_events"
     )
 
     stage_songs_to_redshift = StageToRedshiftOperator(
@@ -59,6 +63,7 @@ def final_project():
     load_user_dimension_table = LoadDimensionOperator(
         task_id="Load_user_dim_table",
         redshift_conn_id="redshift",
+        load_mode="truncate_insert",
         sql_query=SqlQueries.user_table_insert,
         table="users",
     )
@@ -66,6 +71,7 @@ def final_project():
     load_song_dimension_table = LoadDimensionOperator(
         task_id="Load_song_dim_table",
         redshift_conn_id="redshift",
+        load_mode="truncate_insert",
         sql_query=SqlQueries.song_table_insert,
         table="songs",
     )
@@ -73,6 +79,7 @@ def final_project():
     load_artist_dimension_table = LoadDimensionOperator(
         task_id="Load_artist_dim_table",
         redshift_conn_id="redshift",
+        load_mode="truncate_insert",
         sql_query=SqlQueries.artist_table_insert,
         table="artists",
     )
@@ -80,6 +87,7 @@ def final_project():
     load_time_dimension_table = LoadDimensionOperator(
         task_id="Load_time_dim_table",
         redshift_conn_id="redshift",
+        load_mode="truncate_insert",
         sql_query=SqlQueries.time_table_insert,
         table="time",
     )

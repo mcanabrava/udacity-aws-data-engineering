@@ -18,6 +18,11 @@ class SqlQueries:
             ON events.song = songs.title
                 AND events.artist = songs.artist_name
                 AND events.length = songs.duration
+            WHERE NOT EXISTS (
+                SELECT 1
+                FROM songplays
+                WHERE songplays.songplay_id = md5(events.sessionid || events.start_time)
+            )
     """)
 
     user_table_insert = ("""
