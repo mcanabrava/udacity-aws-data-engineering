@@ -6,12 +6,11 @@ import os
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
 
-from airflow.operators import (
-    StageToRedshiftOperator,
-    LoadFactOperator,
-    LoadDimensionOperator,
-    DataQualityOperator,
-)
+from airflow.operators.udacity_plugin import StageToRedshiftOperator
+from airflow.operators.udacity_plugin import LoadFactOperator
+from airflow.operators.udacity_plugin import LoadDimensionOperator
+from airflow.operators.udacity_plugin import DataQualityOperator
+
 from helpers import SqlQueries
 
 default_args = {
@@ -29,6 +28,7 @@ default_args = {
     end_date=pendulum.datetime(2018, 11, 30, 0, 0, 0, 0),
     description="Load and transform data in Redshift with Airflow",
     schedule_interval='@hourly',
+    max_active_runs=1
 )
 def final_project():
 
