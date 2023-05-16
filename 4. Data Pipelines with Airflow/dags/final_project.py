@@ -9,7 +9,7 @@ from airflow.operators import (
     StageToRedshiftOperator,
     LoadFactOperator,
     LoadDimensionOperator,
-    DataQualityOperator,
+    DataQualityOperator
 )
 
 from helpers import SqlQueries
