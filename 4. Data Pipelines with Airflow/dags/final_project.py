@@ -1,15 +1,16 @@
 from datetime import datetime, timedelta
-from airflow.plugins_manager import AirflowPlugin
 
 import pendulum
 import os
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
 
-from airflow.operators.udacity_plugin import StageToRedshiftOperator
-from airflow.operators.udacity_plugin import LoadFactOperator
-from airflow.operators.udacity_plugin import LoadDimensionOperator
-from airflow.operators.udacity_plugin import DataQualityOperator
+from airflow.operators import (
+    StageToRedshiftOperator,
+    LoadFactOperator,
+    LoadDimensionOperator,
+    DataQualityOperator,
+)
 
 from helpers import SqlQueries
 
