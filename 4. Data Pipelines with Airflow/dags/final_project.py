@@ -2,17 +2,14 @@ from datetime import datetime, timedelta
 
 import pendulum
 import os
+
 from airflow.decorators import dag
 from airflow.operators.dummy_operator import DummyOperator
-
-from airflow.operators import (
-    StageToRedshiftOperator,
-    LoadFactOperator,
-    LoadDimensionOperator,
-    DataQualityOperator
-)
-
-from helpers import SqlQueries
+from stage_redshift import StageToRedshiftOperator
+from load_fact import LoadFactOperator
+from load_dimensions import LoadDimensionOperator
+from data_quality import DataQualityOperator
+from sql_queries import SqlQueries
 
 default_args = {
     "owner": "marcelo",
