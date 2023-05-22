@@ -1,4 +1,4 @@
-# udacity-aws-data-engineering-nanodegree
+# udacity-aws-data-engineering
 
 The purpose of this repository is to store the code and deliverables necessary to complete the Data Engineering with AWS Nanodegree Program 2023 from Udacity. The repository is organized according to the curriculum modules:
 
